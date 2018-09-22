@@ -1,53 +1,62 @@
 package com.clinicaMedica.domain;
 
-public class Medico extends Usuario{
-    private int idCrm;
-    private String especialidade;
-    
-    public Medico() {
-    }
+import java.util.List;
 
-    public Medico(int idCrm, String especialidade) {
-        this.idCrm = idCrm;
-        this.especialidade = especialidade;
-    }
+public class Medico extends Usuario {
+	private int idCrm;
+	private String especialidade;
 
-    public Medico(int idCrm, String especialidade, int codigo, String nome, String cpf, int rg, String celular, String residencial, String email, String dtNascimento, String sexo, String rua, String numCasa, String cidade, String bairro, String cep) {
-        super(codigo, nome, cpf, rg, celular, residencial, email, dtNascimento, sexo, rua, numCasa, cidade, bairro, cep);
-        this.idCrm = idCrm;
-        this.especialidade = especialidade;
-    }
-     public int getIdCrm() {
-        return idCrm;
-    }
+	private Proprietario proprietario;
+	private List<Consulta> consultas;
 
-    public void setIdCrm(int idCrm) {
-        this.idCrm = idCrm;
-    }
+	public Medico() {
+	}
 
-    public String getEspecialidade() {
-        return especialidade;
-    }
+	public Medico(int idCrm, String especialidade) {
+		this.idCrm = idCrm;
+		this.especialidade = especialidade;
+	}
 
-    public void setEspecialidade(String especialidade) {
-        this.especialidade = especialidade;
-    }
+	public Medico(int idCrm, String especialidade, int codigo, String nome, String cpf, int rg, String celular,
+			String residencial, String email, String dtNascimento, String sexo, String rua, String numCasa,
+			String cidade, String bairro, String cep) {
+		super(codigo, nome, cpf, rg, celular, residencial, email, dtNascimento, sexo, rua, numCasa, cidade, bairro,
+				cep);
+		this.idCrm = idCrm;
+		this.especialidade = especialidade;
+	}
 
-    public void setComplemento(String text) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+	public int getIdCrm() {
+		return idCrm;
+	}
 
-    public void setCrm(String text) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+	public void setIdCrm(int idCrm) {
+		this.idCrm = idCrm;
+	}
 
-    public void setMunicipio(String toString) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+	public String getEspecialidade() {
+		return especialidade;
+	}
 
-    public void setDescricao(String text) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+	public void setEspecialidade(String especialidade) {
+		this.especialidade = especialidade;
+	}
+
+	public Proprietario getProprietario() {
+		return proprietario;
+	}
+
+	public void setProprietario(Proprietario proprietario) {
+		this.proprietario = proprietario;
+	}
+
+	public List<Consulta> getConsultas() {
+		return consultas;
+	}
+
+	public void setConsultas(List<Consulta> consultas) {
+		this.consultas = consultas;
+	}
 
 	@Override
 	public int hashCode() {
@@ -77,8 +86,4 @@ public class Medico extends Usuario{
 		return true;
 	}
 
-    
-    
-    
-    
 }

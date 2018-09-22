@@ -1,5 +1,7 @@
 package com.clinicaMedica.domain;
 
+import java.util.List;
+
 public class Recepcionista extends Usuario{
     
     private int id;
@@ -7,6 +9,12 @@ public class Recepcionista extends Usuario{
     private String senha;
     private boolean adm;
     private String cfpExistente;
+    
+    
+    private List<Paciente> pacientes;
+    private Proprietario proprietario;
+    private List<Consulta> consultas;
+    
 
     public Recepcionista() {
     }
@@ -67,6 +75,38 @@ public class Recepcionista extends Usuario{
     public void setCfpExistente(String cfpExistente) {
         this.cfpExistente = cfpExistente;
     }
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public List<Paciente> getPacientes() {
+		return pacientes;
+	}
+
+	public void setPacientes(List<Paciente> pacientes) {
+		this.pacientes = pacientes;
+	}
+
+	public Proprietario getProprietario() {
+		return proprietario;
+	}
+
+	public void setProprietario(Proprietario proprietario) {
+		this.proprietario = proprietario;
+	}
+
+	public List<Consulta> getConsultas() {
+		return consultas;
+	}
+
+	public void setConsultas(List<Consulta> consultas) {
+		this.consultas = consultas;
+	}
 
 	@Override
 	public int hashCode() {

@@ -15,6 +15,9 @@ public class Consulta {
 	private String dtConsulta;
 	private String dtRetorno;
 	private double valorConsulta;
+	
+	private Recepcionista recepcionista;
+	private Medico medico;
 
 	public Consulta() {
 	}
@@ -139,6 +142,53 @@ public class Consulta {
 
 	public void setValorConsulta(double valorConsulta) {
 		this.valorConsulta = valorConsulta;
+	}
+
+	public Recepcionista getRecepcionista() {
+		return recepcionista;
+	}
+
+	public void setRecepcionista(Recepcionista recepcionista) {
+		this.recepcionista = recepcionista;
+	}
+
+	public Medico getMedico() {
+		return medico;
+	}
+
+	public void setMedico(Medico medico) {
+		this.medico = medico;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + codigo_Prontuario;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Consulta other = (Consulta) obj;
+		if (codigo_Prontuario != other.codigo_Prontuario)
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "Consulta [codigo_Prontuario=" + codigo_Prontuario + ", especialidade=" + especialidade
+				+ ", diagnostico=" + diagnostico + ", exame=" + exame + ", tratamento=" + tratamento + ", sintomas="
+				+ sintomas + ", descricao=" + descricao + ", peso=" + peso + ", altura=" + altura + ", pressao="
+				+ pressao + ", dtConsulta=" + dtConsulta + ", dtRetorno=" + dtRetorno + ", valorConsulta="
+				+ valorConsulta + ", recepcionista=" + recepcionista + ", medico=" + medico + "]";
 	}
 
 }

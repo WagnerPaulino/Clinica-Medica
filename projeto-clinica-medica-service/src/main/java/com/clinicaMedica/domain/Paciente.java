@@ -1,8 +1,12 @@
 package com.clinicaMedica.domain;
 
+import java.util.List;
+
 public class Paciente extends Usuario{
+	
+	
     private int idPaciente;
-    
+    private List<Recepcionista> recepcionistas;
 
     public Paciente() {
     }
@@ -23,6 +27,14 @@ public class Paciente extends Usuario{
     public void setIdPaciente(int idPaciente) {
         this.idPaciente = idPaciente;
     }
+
+	public List<Recepcionista> getRecepcionistas() {
+		return recepcionistas;
+	}
+
+	public void setRecepcionistas(List<Recepcionista> recepcionistas) {
+		this.recepcionistas = recepcionistas;
+	}
 
 	@Override
 	public int hashCode() {
