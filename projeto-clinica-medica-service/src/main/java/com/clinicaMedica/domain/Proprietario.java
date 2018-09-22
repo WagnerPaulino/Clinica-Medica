@@ -2,14 +2,27 @@ package com.clinicaMedica.domain;
 
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+@Entity
+@Table(name = "proprietario")
+@JsonIdentityInfo(generator = ObjectIdGenerators.UUIDGenerator.class, property = "uuid")
 public class Proprietario extends Usuario {
-	
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-	
-	
+	@OneToMany(mappedBy = "proprietario")
 	private List<Recepcionista> recepcionistas;
-	private List<Medico> medico; 
-	
+	@OneToMany(mappedBy = "proprietario")
+	private List<Medico> medico;
 
 	public int getId() {
 		return id;

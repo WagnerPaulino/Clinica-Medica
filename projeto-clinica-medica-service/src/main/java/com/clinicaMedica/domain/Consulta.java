@@ -1,31 +1,61 @@
 package com.clinicaMedica.domain;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
+@Entity
+@Table(name = "consulta")
+@JsonIdentityInfo(generator = ObjectIdGenerators.UUIDGenerator.class, property = "uuid")
 public class Consulta {
 
-	private int codigo_Prontuario;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int id;
+	@Column
 	private String especialidade;
+	@Column
 	private String diagnostico;
+	@Column
 	private String exame;
+	@Column
 	private String tratamento;
+	@Column
 	private double sintomas;
+	@Column
 	private String descricao;
+	@Column
 	private double peso;
+	@Column
 	private double altura;
+	@Column
 	private int pressao;
+	@Column
 	private String dtConsulta;
+	@Column
 	private String dtRetorno;
+	@Column
 	private double valorConsulta;
-	
-	private Recepcionista recepcionista;
+	@ManyToOne(fetch = FetchType.LAZY)
+	private Recepcionista recepcionistas;
+	@ManyToOne(fetch = FetchType.LAZY)
 	private Medico medico;
 
 	public Consulta() {
 	}
 
-	public Consulta(int codigo_Prontuario, String especialidade, String diagnostico, String exame, String tratamento,
-			double sintomas, String descricao, double peso, double altura, int pressao, String dtConsulta,
-			String dtRetorno, double valorConsulta) {
-		this.codigo_Prontuario = codigo_Prontuario;
+	public Consulta(int id, String especialidade, String diagnostico, String exame, String tratamento, double sintomas,
+			String descricao, double peso, double altura, int pressao, String dtConsulta, String dtRetorno,
+			double valorConsulta) {
+		this.id = id;
 		this.especialidade = especialidade;
 		this.diagnostico = diagnostico;
 		this.exame = exame;
@@ -40,12 +70,12 @@ public class Consulta {
 		this.valorConsulta = valorConsulta;
 	}
 
-	public int getCodigo_Prontuario() {
-		return codigo_Prontuario;
+	public int getid() {
+		return id;
 	}
 
-	public void setCodigo_Prontuario(int codigo_Prontuario) {
-		this.codigo_Prontuario = codigo_Prontuario;
+	public void setid(int id) {
+		this.id = id;
 	}
 
 	public String getEspecialidade() {
@@ -144,12 +174,12 @@ public class Consulta {
 		this.valorConsulta = valorConsulta;
 	}
 
-	public Recepcionista getRecepcionista() {
-		return recepcionista;
+	public Recepcionista getRecepcionistass() {
+		return recepcionistas;
 	}
 
-	public void setRecepcionista(Recepcionista recepcionista) {
-		this.recepcionista = recepcionista;
+	public void setRecepcionistas(Recepcionista recepcionistas) {
+		this.recepcionistas = recepcionistas;
 	}
 
 	public Medico getMedico() {
@@ -164,7 +194,7 @@ public class Consulta {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + codigo_Prontuario;
+		result = prime * result + id;
 		return result;
 	}
 
@@ -177,18 +207,18 @@ public class Consulta {
 		if (getClass() != obj.getClass())
 			return false;
 		Consulta other = (Consulta) obj;
-		if (codigo_Prontuario != other.codigo_Prontuario)
+		if (id != other.id)
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Consulta [codigo_Prontuario=" + codigo_Prontuario + ", especialidade=" + especialidade
-				+ ", diagnostico=" + diagnostico + ", exame=" + exame + ", tratamento=" + tratamento + ", sintomas="
-				+ sintomas + ", descricao=" + descricao + ", peso=" + peso + ", altura=" + altura + ", pressao="
-				+ pressao + ", dtConsulta=" + dtConsulta + ", dtRetorno=" + dtRetorno + ", valorConsulta="
-				+ valorConsulta + ", recepcionista=" + recepcionista + ", medico=" + medico + "]";
+		return "Consulta [id=" + id + ", especialidade=" + especialidade + ", diagnostico=" + diagnostico + ", exame="
+				+ exame + ", tratamento=" + tratamento + ", sintomas=" + sintomas + ", descricao=" + descricao
+				+ ", peso=" + peso + ", altura=" + altura + ", pressao=" + pressao + ", dtConsulta=" + dtConsulta
+				+ ", dtRetorno=" + dtRetorno + ", valorConsulta=" + valorConsulta + ", recepcionista=" + recepcionistas
+				+ ", medico=" + medico + "]";
 	}
 
 }

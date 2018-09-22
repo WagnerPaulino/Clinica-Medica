@@ -2,10 +2,25 @@ package com.clinicaMedica.domain;
 
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+@Entity
+@Table(name = "paciente")
+@JsonIdentityInfo(generator = ObjectIdGenerators.UUIDGenerator.class, property = "uuid")
 public class Paciente extends Usuario{
 	
-	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
     private int idPaciente;
+	
+	@ManyToMany(mappedBy= "pacientes")
     private List<Recepcionista> recepcionistas;
 
     public Paciente() {
@@ -16,7 +31,7 @@ public class Paciente extends Usuario{
     }
 
     public Paciente(int idPaciente, int codigo, String nome, String cpf, int rg, String celular, String residencial, String email, String dtNascimento, String sexo, String rua, String numCasa, String cidade, String bairro, String cep) {
-        super(codigo, nome, cpf, rg, celular, residencial, email, dtNascimento, sexo, rua, numCasa, cidade, bairro, cep);
+        super(nome, cpf, rg, celular, residencial, email, dtNascimento, sexo, rua, numCasa, cidade, bairro, cep);
         this.idPaciente = idPaciente;
     }
 

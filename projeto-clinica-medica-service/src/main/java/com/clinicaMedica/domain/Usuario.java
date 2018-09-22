@@ -1,7 +1,9 @@
 package com.clinicaMedica.domain;
 
+import javax.persistence.MappedSuperclass;
+
+@MappedSuperclass
 public class Usuario {
-	private int codigo;
 	private String nome;
 	private String cpf;
 	private int rg;
@@ -19,9 +21,8 @@ public class Usuario {
 	public Usuario() {
 	}
 
-	public Usuario(int codigo, String nome, String cpf, int rg, String celular, String residencial, String email,
+	public Usuario(String nome, String cpf, int rg, String celular, String residencial, String email,
 			String dtNascimento, String sexo, String rua, String numCasa, String cidade, String bairro, String cep) {
-		this.codigo = codigo;
 		this.nome = nome;
 		this.cpf = cpf;
 		this.rg = rg;
@@ -35,14 +36,6 @@ public class Usuario {
 		this.cidade = cidade;
 		this.bairro = bairro;
 		this.cep = cep;
-	}
-
-	public int getCodigo() {
-		return codigo;
-	}
-
-	public void setCodigo(int codigo) {
-		this.codigo = codigo;
 	}
 
 	public String getNome() {
@@ -185,10 +178,9 @@ public class Usuario {
 
 	@Override
 	public String toString() {
-		return "Usuario [codigo=" + codigo + ", nome=" + nome + ", cpf=" + cpf + ", rg=" + rg + ", celular=" + celular
-				+ ", residencial=" + residencial + ", email=" + email + ", dtNascimento=" + dtNascimento + ", sexo="
-				+ sexo + ", rua=" + rua + ", numCasa=" + numCasa + ", cidade=" + cidade + ", bairro=" + bairro
-				+ ", cep=" + cep + "]";
+		return "Usuario [ nome=" + nome + ", cpf=" + cpf + ", rg=" + rg + ", celular=" + celular + ", residencial="
+				+ residencial + ", email=" + email + ", dtNascimento=" + dtNascimento + ", sexo=" + sexo + ", rua="
+				+ rua + ", numCasa=" + numCasa + ", cidade=" + cidade + ", bairro=" + bairro + ", cep=" + cep + "]";
 	}
 
 }

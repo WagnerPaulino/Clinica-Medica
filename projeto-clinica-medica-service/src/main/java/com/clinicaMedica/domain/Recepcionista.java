@@ -2,79 +2,105 @@ package com.clinicaMedica.domain;
 
 import java.util.List;
 
-public class Recepcionista extends Usuario{
-    
-    private int id;
-    private String login;
-    private String senha;
-    private boolean adm;
-    private String cfpExistente;
-    
-    
-    private List<Paciente> pacientes;
-    private Proprietario proprietario;
-    private List<Consulta> consultas;
-    
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
-    public Recepcionista() {
-    }
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
-    public Recepcionista(int id, String login, String senha, boolean adm, String cfpExistente) {
-        this.id = id;
-        this.login = login;
-        this.senha = senha;
-        this.adm = adm;
-        this.cfpExistente = cfpExistente;
-    }
+@Entity
+@Table(name = "recepcionista")
+@JsonIdentityInfo(generator = ObjectIdGenerators.UUIDGenerator.class, property = "uuid")
+public class Recepcionista extends Usuario {
 
-    public Recepcionista(int id, String login, String senha, boolean adm, String cfpExistente, int codigo, String nome, String cpf, int rg, String celular, String residencial, String email, String dtNascimento, String sexo, String rua, String numCasa, String cidade, String bairro, String cep) {
-        super(codigo, nome, cpf, rg, celular, residencial, email, dtNascimento, sexo, rua, numCasa, cidade, bairro, cep);
-        this.id = id;
-        this.login = login;
-        this.senha = senha;
-        this.adm = adm;
-        this.cfpExistente = cfpExistente;
-    }
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int id;
+	@Column
+	private String login;
+	@Column
+	private String senha;
+	@Column
+	private boolean adm;
+	@Column
+	private String cfpExistente;
+	@ManyToMany(fetch = FetchType.LAZY)
+	private List<Paciente> pacientes;
+	@ManyToOne(fetch = FetchType.LAZY)
+	private Proprietario proprietario;
+	@OneToMany(mappedBy = "recepcionistas")
+	private List<Consulta> consultas;
 
-    public int getid() {
-        return id;
-    }
+	public Recepcionista() {
+	}
 
-    public void setid(int id) {
-        this.id = id;
-    }
+	public Recepcionista(int id, String login, String senha, boolean adm, String cfpExistente) {
+		this.id = id;
+		this.login = login;
+		this.senha = senha;
+		this.adm = adm;
+		this.cfpExistente = cfpExistente;
+	}
 
-    public String getLogin() {
-        return login;
-    }
+	public Recepcionista(int id, String login, String senha, boolean adm, String cfpExistente, int codigo, String nome,
+			String cpf, int rg, String celular, String residencial, String email, String dtNascimento, String sexo,
+			String rua, String numCasa, String cidade, String bairro, String cep) {
+		super(nome, cpf, rg, celular, residencial, email, dtNascimento, sexo, rua, numCasa, cidade, bairro,
+				cep);
+		this.id = id;
+		this.login = login;
+		this.senha = senha;
+		this.adm = adm;
+		this.cfpExistente = cfpExistente;
+	}
 
-    public void setLogin(String login) {
-        this.login = login;
-    }
+	public int getid() {
+		return id;
+	}
 
-    public String getSenha() {
-        return senha;
-    }
+	public void setid(int id) {
+		this.id = id;
+	}
 
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
+	public String getLogin() {
+		return login;
+	}
 
-    public boolean isAdm() {
-        return adm;
-    }
+	public void setLogin(String login) {
+		this.login = login;
+	}
 
-    public void setAdm(boolean adm) {
-        this.adm = adm;
-    }
+	public String getSenha() {
+		return senha;
+	}
 
-    public String getCfpExistente() {
-        return cfpExistente;
-    }
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
 
-    public void setCfpExistente(String cfpExistente) {
-        this.cfpExistente = cfpExistente;
-    }
+	public boolean isAdm() {
+		return adm;
+	}
+
+	public void setAdm(boolean adm) {
+		this.adm = adm;
+	}
+
+	public String getCfpExistente() {
+		return cfpExistente;
+	}
+
+	public void setCfpExistente(String cfpExistente) {
+		this.cfpExistente = cfpExistente;
+	}
 
 	public int getId() {
 		return id;
@@ -147,5 +173,5 @@ public class Recepcionista extends Usuario{
 		return "Recepcionista [id=" + id + ", login=" + login + ", senha=" + senha + ", adm=" + adm + ", cfpExistente="
 				+ cfpExistente + "]";
 	}
- 
+
 }
