@@ -18,17 +18,17 @@ public class Proprietario extends Usuario {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private Long id;
 	@OneToMany(mappedBy = "proprietario")
 	private List<Recepcionista> recepcionistas;
 	@OneToMany(mappedBy = "proprietario")
 	private List<Medico> medico;
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -52,7 +52,7 @@ public class Proprietario extends Usuario {
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
-		result = prime * result + id;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
 
@@ -65,9 +65,14 @@ public class Proprietario extends Usuario {
 		if (getClass() != obj.getClass())
 			return false;
 		Proprietario other = (Proprietario) obj;
-		if (id != other.id)
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
 			return false;
 		return true;
 	}
+
+	
 
 }
