@@ -7,9 +7,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 @Entity
 @Table(name = "paciente")
@@ -21,7 +23,11 @@ public class Paciente extends Usuario{
     private Long idPaciente;
 	
 	@ManyToMany(mappedBy= "pacientes")
+	@JsonIgnore
     private List<Recepcionista> recepcionistas;
+	
+	@OneToMany(mappedBy = "paciente")
+	private List<Consulta> consultas;
 
     public Paciente() {
     }
@@ -40,6 +46,14 @@ public class Paciente extends Usuario{
 
 	public void setRecepcionistas(List<Recepcionista> recepcionistas) {
 		this.recepcionistas = recepcionistas;
+	}
+
+	public List<Consulta> getConsultas() {
+		return consultas;
+	}
+
+	public void setConsultas(List<Consulta> consultas) {
+		this.consultas = consultas;
 	}
 
 	@Override

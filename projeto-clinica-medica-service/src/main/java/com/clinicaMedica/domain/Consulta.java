@@ -51,6 +51,9 @@ public class Consulta {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JsonBackReference
 	private Medico medico;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JsonBackReference
+	private Paciente paciente;
 
 	public Consulta() {
 	}
@@ -173,6 +176,14 @@ public class Consulta {
 
 	public void setMedico(Medico medico) {
 		this.medico = medico;
+	}
+
+	public Paciente getPaciente() {
+		return paciente;
+	}
+
+	public void setPaciente(Paciente paciente) {
+		this.paciente = paciente;
 	}
 
 	@Override
