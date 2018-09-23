@@ -10,6 +10,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
@@ -23,6 +24,7 @@ public class Proprietario extends Usuario {
 	@OneToMany(mappedBy = "proprietario")
 	private List<Recepcionista> recepcionistas;
 	@OneToMany(mappedBy = "proprietario")
+	@JsonIgnore
 	private List<Medico> medicos;
 
 	public Proprietario() {
