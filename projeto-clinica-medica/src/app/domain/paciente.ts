@@ -1,7 +1,7 @@
-import { Recepcionista } from './recepcionista';
+import { Consulta } from './consulta';
 import { Usuario } from './usuario';
 
 export class Paciente extends Usuario {
     idPaciente: Number;
-    recepcionista: Recepcionista[] = [];
+    recepcionista: Consulta[] = [];
 }
