@@ -26,7 +26,7 @@ public class Medico extends Usuario {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	@Column(unique = true)
-	private int idCrm;
+	private Long idCrm;
 	@Column
 	private String especialidade;
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -38,24 +38,19 @@ public class Medico extends Usuario {
 	public Medico() {
 	}
 
-	public Medico(int idCrm, String especialidade) {
-		this.idCrm = idCrm;
-		this.especialidade = especialidade;
+	public Long getId() {
+		return id;
 	}
 
-	public Medico(int idCrm, String especialidade, int codigo, String nome, String cpf, int rg, String celular,
-			String residencial, String email, String dtNascimento, String sexo, String rua, String numCasa,
-			String cidade, String bairro, String cep) {
-		super(nome, cpf, rg, celular, residencial, email, dtNascimento, sexo, rua, numCasa, cidade, bairro, cep);
-		this.idCrm = idCrm;
-		this.especialidade = especialidade;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
-	public int getIdCrm() {
+	public Long getIdCrm() {
 		return idCrm;
 	}
 
-	public void setIdCrm(int idCrm) {
+	public void setIdCrm(Long idCrm) {
 		this.idCrm = idCrm;
 	}
 
@@ -83,22 +78,12 @@ public class Medico extends Usuario {
 		this.consultas = consultas;
 	}
 
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + idCrm;
+		result = prime * result + ((idCrm == null) ? 0 : idCrm.hashCode());
 		return result;
 	}
 
@@ -116,15 +101,14 @@ public class Medico extends Usuario {
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
-		if (idCrm != other.idCrm)
+		if (idCrm == null) {
+			if (other.idCrm != null)
+				return false;
+		} else if (!idCrm.equals(other.idCrm))
 			return false;
 		return true;
 	}
-
-	@Override
-	public String toString() {
-		return "Medico [id=" + id + ", idCrm=" + idCrm + ", especialidade=" + especialidade + ", proprietario="
-				+ proprietario + ", consultas=" + consultas + "]";
-	}
+	
+	
 
 }

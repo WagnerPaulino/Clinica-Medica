@@ -25,16 +25,7 @@ public class Paciente extends Usuario{
 
     public Paciente() {
     }
-
-    public Paciente(Long idPaciente) {
-        this.idPaciente = idPaciente;
-    }
-
-    public Paciente(Long idPaciente, int codigo, String nome, String cpf, int rg, String celular, String residencial, String email, String dtNascimento, String sexo, String rua, String numCasa, String cidade, String bairro, String cep) {
-        super(nome, cpf, rg, celular, residencial, email, dtNascimento, sexo, rua, numCasa, cidade, bairro, cep);
-        this.idPaciente = idPaciente;
-    }
-
+    
     public Long getIdPaciente() {
         return idPaciente;
     }

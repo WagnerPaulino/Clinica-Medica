@@ -30,7 +30,7 @@ public class Recepcionista extends Usuario {
 	@Column
 	private String senha;
 	@Column
-	private boolean adm;
+	private Boolean adm;
 	@Column
 	private String cfpExistente;
 	@ManyToMany(fetch = FetchType.LAZY)
@@ -45,23 +45,12 @@ public class Recepcionista extends Usuario {
 	public Recepcionista() {
 	}
 
-	public Recepcionista(Long id, String login, String senha, boolean adm, String cfpExistente) {
-		this.id = id;
-		this.login = login;
-		this.senha = senha;
-		this.adm = adm;
-		this.cfpExistente = cfpExistente;
+	public Long getId() {
+		return id;
 	}
 
-	public Recepcionista(Long id, String login, String senha, boolean adm, String cfpExistente, int codigo, String nome,
-			String cpf, int rg, String celular, String residencial, String email, String dtNascimento, String sexo,
-			String rua, String numCasa, String cidade, String bairro, String cep) {
-		super(nome, cpf, rg, celular, residencial, email, dtNascimento, sexo, rua, numCasa, cidade, bairro, cep);
+	public void setId(Long id) {
 		this.id = id;
-		this.login = login;
-		this.senha = senha;
-		this.adm = adm;
-		this.cfpExistente = cfpExistente;
 	}
 
 	public String getLogin() {
@@ -80,11 +69,11 @@ public class Recepcionista extends Usuario {
 		this.senha = senha;
 	}
 
-	public boolean isAdm() {
+	public Boolean getAdm() {
 		return adm;
 	}
 
-	public void setAdm(boolean adm) {
+	public void setAdm(Boolean adm) {
 		this.adm = adm;
 	}
 
@@ -94,14 +83,6 @@ public class Recepcionista extends Usuario {
 
 	public void setCfpExistente(String cfpExistente) {
 		this.cfpExistente = cfpExistente;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	public List<Paciente> getPacientes() {
@@ -128,12 +109,11 @@ public class Recepcionista extends Usuario {
 		this.consultas = consultas;
 	}
 
-	
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
+		result = prime * result + ((cfpExistente == null) ? 0 : cfpExistente.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((login == null) ? 0 : login.hashCode());
 		result = prime * result + ((senha == null) ? 0 : senha.hashCode());
@@ -149,6 +129,11 @@ public class Recepcionista extends Usuario {
 		if (getClass() != obj.getClass())
 			return false;
 		Recepcionista other = (Recepcionista) obj;
+		if (cfpExistente == null) {
+			if (other.cfpExistente != null)
+				return false;
+		} else if (!cfpExistente.equals(other.cfpExistente))
+			return false;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -165,12 +150,6 @@ public class Recepcionista extends Usuario {
 		} else if (!senha.equals(other.senha))
 			return false;
 		return true;
-	}
-
-	@Override
-	public String toString() {
-		return "Recepcionista [id=" + id + ", login=" + login + ", senha=" + senha + ", adm=" + adm + ", cfpExistente="
-				+ cfpExistente + "]";
 	}
 
 }

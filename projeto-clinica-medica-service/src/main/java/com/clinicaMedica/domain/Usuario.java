@@ -6,7 +6,7 @@ import javax.persistence.MappedSuperclass;
 public class Usuario {
 	private String nome;
 	private String cpf;
-	private int rg;
+	private Integer rg;
 	private String celular;
 	private String residencial;
 	private String email;
@@ -19,23 +19,6 @@ public class Usuario {
 	private String cep;
 
 	public Usuario() {
-	}
-
-	public Usuario(String nome, String cpf, int rg, String celular, String residencial, String email,
-			String dtNascimento, String sexo, String rua, String numCasa, String cidade, String bairro, String cep) {
-		this.nome = nome;
-		this.cpf = cpf;
-		this.rg = rg;
-		this.celular = celular;
-		this.residencial = residencial;
-		this.email = email;
-		this.dtNascimento = dtNascimento;
-		this.sexo = sexo;
-		this.rua = rua;
-		this.numCasa = numCasa;
-		this.cidade = cidade;
-		this.bairro = bairro;
-		this.cep = cep;
 	}
 
 	public String getNome() {
@@ -54,11 +37,11 @@ public class Usuario {
 		this.cpf = cpf;
 	}
 
-	public int getRg() {
+	public Integer getRg() {
 		return rg;
 	}
 
-	public void setRg(int rg) {
+	public void setRg(Integer rg) {
 		this.rg = rg;
 	}
 
@@ -146,9 +129,9 @@ public class Usuario {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((cep == null) ? 0 : cep.hashCode());
 		result = prime * result + ((cpf == null) ? 0 : cpf.hashCode());
-		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
-		result = prime * result + rg;
+		result = prime * result + ((rg == null) ? 0 : rg.hashCode());
 		return result;
 	}
 
@@ -161,26 +144,22 @@ public class Usuario {
 		if (getClass() != obj.getClass())
 			return false;
 		Usuario other = (Usuario) obj;
+		if (cep == null) {
+			if (other.cep != null)
+				return false;
+		} else if (!cep.equals(other.cep))
+			return false;
 		if (cpf == null) {
 			if (other.cpf != null)
 				return false;
 		} else if (!cpf.equals(other.cpf))
 			return false;
-		if (nome == null) {
-			if (other.nome != null)
+		if (rg == null) {
+			if (other.rg != null)
 				return false;
-		} else if (!nome.equals(other.nome))
-			return false;
-		if (rg != other.rg)
+		} else if (!rg.equals(other.rg))
 			return false;
 		return true;
-	}
-
-	@Override
-	public String toString() {
-		return "Usuario [ nome=" + nome + ", cpf=" + cpf + ", rg=" + rg + ", celular=" + celular + ", residencial="
-				+ residencial + ", email=" + email + ", dtNascimento=" + dtNascimento + ", sexo=" + sexo + ", rua="
-				+ rua + ", numCasa=" + numCasa + ", cidade=" + cidade + ", bairro=" + bairro + ", cep=" + cep + "]";
 	}
 
 }

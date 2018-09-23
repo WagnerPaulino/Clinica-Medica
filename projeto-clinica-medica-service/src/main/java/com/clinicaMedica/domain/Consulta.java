@@ -34,17 +34,17 @@ public class Consulta {
 	@Column
 	private String descricao;
 	@Column
-	private double peso;
+	private Double peso;
 	@Column
-	private double altura;
+	private Double altura;
 	@Column
-	private int pressao;
+	private Integer pressao;
 	@Column
 	private String dtConsulta;
 	@Column
 	private String dtRetorno;
 	@Column
-	private double valorConsulta;
+	private Double valorConsulta;
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JsonBackReference
 	private Recepcionista recepcionistas;
@@ -53,24 +53,6 @@ public class Consulta {
 	private Medico medico;
 
 	public Consulta() {
-	}
-
-	public Consulta(Long id, String especialidade, String diagnostico, String exame, String tratamento, String sintomas,
-			String descricao, double peso, double altura, int pressao, String dtConsulta, String dtRetorno,
-			double valorConsulta) {
-		this.id = id;
-		this.especialidade = especialidade;
-		this.diagnostico = diagnostico;
-		this.exame = exame;
-		this.tratamento = tratamento;
-		this.sintomas = sintomas;
-		this.descricao = descricao;
-		this.peso = peso;
-		this.altura = altura;
-		this.pressao = pressao;
-		this.dtConsulta = dtConsulta;
-		this.dtRetorno = dtRetorno;
-		this.valorConsulta = valorConsulta;
 	}
 
 	public Long getId() {
@@ -129,27 +111,27 @@ public class Consulta {
 		this.descricao = descricao;
 	}
 
-	public double getPeso() {
+	public Double getPeso() {
 		return peso;
 	}
 
-	public void setPeso(double peso) {
+	public void setPeso(Double peso) {
 		this.peso = peso;
 	}
 
-	public double getAltura() {
+	public Double getAltura() {
 		return altura;
 	}
 
-	public void setAltura(double altura) {
+	public void setAltura(Double altura) {
 		this.altura = altura;
 	}
 
-	public int getPressao() {
+	public Integer getPressao() {
 		return pressao;
 	}
 
-	public void setPressao(int pressao) {
+	public void setPressao(Integer pressao) {
 		this.pressao = pressao;
 	}
 
@@ -169,15 +151,15 @@ public class Consulta {
 		this.dtRetorno = dtRetorno;
 	}
 
-	public double getValorConsulta() {
+	public Double getValorConsulta() {
 		return valorConsulta;
 	}
 
-	public void setValorConsulta(double valorConsulta) {
+	public void setValorConsulta(Double valorConsulta) {
 		this.valorConsulta = valorConsulta;
 	}
 
-	public Recepcionista getRecepcionistass() {
+	public Recepcionista getRecepcionistas() {
 		return recepcionistas;
 	}
 
@@ -198,9 +180,9 @@ public class Consulta {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		long temp;
-		temp = Double.doubleToLongBits(valorConsulta);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + ((peso == null) ? 0 : peso.hashCode());
+		result = prime * result + ((pressao == null) ? 0 : pressao.hashCode());
+		result = prime * result + ((valorConsulta == null) ? 0 : valorConsulta.hashCode());
 		return result;
 	}
 
@@ -218,18 +200,22 @@ public class Consulta {
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
-		if (Double.doubleToLongBits(valorConsulta) != Double.doubleToLongBits(other.valorConsulta))
+		if (peso == null) {
+			if (other.peso != null)
+				return false;
+		} else if (!peso.equals(other.peso))
+			return false;
+		if (pressao == null) {
+			if (other.pressao != null)
+				return false;
+		} else if (!pressao.equals(other.pressao))
+			return false;
+		if (valorConsulta == null) {
+			if (other.valorConsulta != null)
+				return false;
+		} else if (!valorConsulta.equals(other.valorConsulta))
 			return false;
 		return true;
-	}
-
-	@Override
-	public String toString() {
-		return "Consulta [id=" + id + ", especialidade=" + especialidade + ", diagnostico=" + diagnostico + ", exame="
-				+ exame + ", tratamento=" + tratamento + ", sintomas=" + sintomas + ", descricao=" + descricao
-				+ ", peso=" + peso + ", altura=" + altura + ", pressao=" + pressao + ", dtConsulta=" + dtConsulta
-				+ ", dtRetorno=" + dtRetorno + ", valorConsulta=" + valorConsulta + ", recepcionista=" + recepcionistas
-				+ ", medico=" + medico + "]";
 	}
 
 }
