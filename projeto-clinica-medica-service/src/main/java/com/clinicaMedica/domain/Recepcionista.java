@@ -13,6 +13,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
@@ -33,8 +34,10 @@ public class Recepcionista extends Usuario {
 	@Column
 	private String cfpExistente;
 	@ManyToMany(fetch = FetchType.LAZY)
+	@JsonBackReference
 	private List<Paciente> pacientes;
 	@ManyToOne(fetch = FetchType.LAZY)
+	@JsonBackReference
 	private Proprietario proprietario;
 	@OneToMany(mappedBy = "recepcionistas")
 	private List<Consulta> consultas;

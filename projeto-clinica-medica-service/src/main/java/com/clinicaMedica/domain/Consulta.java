@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
@@ -45,8 +46,10 @@ public class Consulta {
 	@Column
 	private double valorConsulta;
 	@ManyToOne(fetch = FetchType.LAZY)
+	@JsonBackReference
 	private Recepcionista recepcionistas;
 	@ManyToOne(fetch = FetchType.LAZY)
+	@JsonBackReference
 	private Medico medico;
 
 	public Consulta() {
