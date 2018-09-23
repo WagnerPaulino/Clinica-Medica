@@ -29,7 +29,7 @@ public class Consulta {
 	@Column
 	private String tratamento;
 	@Column
-	private double sintomas;
+	private String sintomas;
 	@Column
 	private String descricao;
 	@Column
@@ -52,7 +52,7 @@ public class Consulta {
 	public Consulta() {
 	}
 
-	public Consulta(Long id, String especialidade, String diagnostico, String exame, String tratamento, double sintomas,
+	public Consulta(Long id, String especialidade, String diagnostico, String exame, String tratamento, String sintomas,
 			String descricao, double peso, double altura, int pressao, String dtConsulta, String dtRetorno,
 			double valorConsulta) {
 		this.id = id;
@@ -70,11 +70,11 @@ public class Consulta {
 		this.valorConsulta = valorConsulta;
 	}
 
-	public Long getid() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setid(Long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -110,11 +110,11 @@ public class Consulta {
 		this.tratamento = tratamento;
 	}
 
-	public double getSintomas() {
+	public String getSintomas() {
 		return sintomas;
 	}
 
-	public void setSintomas(double sintomas) {
+	public void setSintomas(String sintomas) {
 		this.sintomas = sintomas;
 	}
 

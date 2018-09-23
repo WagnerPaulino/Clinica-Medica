@@ -22,7 +22,28 @@ public class Proprietario extends Usuario {
 	@OneToMany(mappedBy = "proprietario")
 	private List<Recepcionista> recepcionistas;
 	@OneToMany(mappedBy = "proprietario")
-	private List<Medico> medico;
+	private List<Medico> medicos;
+	
+	
+
+	public Proprietario(Long id, List<Recepcionista> recepcionistas, List<Medico> medicos) {
+		super();
+		this.id = id;
+		this.recepcionistas = recepcionistas;
+		this.medicos = medicos;
+	}
+	
+
+	public Proprietario(String nome, String cpf, int rg, String celular, String residencial, String email,
+			String dtNascimento, String sexo, String rua, String numCasa, String cidade, String bairro, String cep) {
+		super(nome, cpf, rg, celular, residencial, email, dtNascimento, sexo, rua, numCasa, cidade, bairro, cep);
+		// TODO Auto-generated constructor stub
+	}
+
+
+	public Proprietario() {
+		super();
+	}
 
 	public Long getId() {
 		return id;
@@ -40,12 +61,12 @@ public class Proprietario extends Usuario {
 		this.recepcionistas = recepcionistas;
 	}
 
-	public List<Medico> getMedico() {
-		return medico;
+	public List<Medico> getMedicos() {
+		return medicos;
 	}
 
-	public void setMedico(List<Medico> medico) {
-		this.medico = medico;
+	public void setMedicos(List<Medico> medico) {
+		this.medicos = medico;
 	}
 
 	@Override
