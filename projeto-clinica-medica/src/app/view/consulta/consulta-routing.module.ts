@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {path: 'consulta-list', component: ConsultaListComponent, children: [
-
+    { path: 'edit', component: ConsultaListComponent }
   ]}
 ];
 

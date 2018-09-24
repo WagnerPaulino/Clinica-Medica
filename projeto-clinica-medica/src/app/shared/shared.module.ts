@@ -49,6 +49,7 @@ const ANGULAR = [
     ANGULAR_MATERIAL,
     ANGULAR,
     DashboardComponent
-  ]
+  ],
+  providers: []
 })
 export class SharedModule { }
