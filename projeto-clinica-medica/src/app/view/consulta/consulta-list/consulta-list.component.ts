@@ -16,7 +16,7 @@ export class ConsultaListComponent implements OnInit {
     this.consultaService.findAll().subscribe((r: any) => {
       this.consultas = r.content;
       console.log(this.consultas);
-    })
+    });
   }
 
 }

@@ -1,9 +1,15 @@
 package com.clinicaMedica.domain;
 
+import java.io.Serializable;
+
 import javax.persistence.MappedSuperclass;
 
 @MappedSuperclass
-public class Usuario {
+public class Usuario implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String nome;
 	private String cpf;
 	private Integer rg;

@@ -11,23 +11,39 @@ import { switchMap, map } from 'rxjs/operators'
 })
 export class ConsultaEditComponent implements OnInit {
   public consulta: Consulta = new Consulta();
-  constructor(private consultaService: ConsultaService, private route: ActivatedRoute, private router: ActivatedRoute) {
+  constructor(private consultaService: ConsultaService,
+    private route: ActivatedRoute,
+    private router: ActivatedRoute) {
     this.route.queryParams.subscribe((params) => {
-        let id = params['id'];
-        if(id){
+        const id = params['id'];
+        if (id) {
           this.consultaService.findOne(id).subscribe((r: Consulta) => {
             this.consulta = r;
             console.log(this.consulta);
-          })
-        }else{
+          });
+        } else {
           this.consulta = new Consulta;
         }
     });
-
    }
-
-  ngOnInit() {
-
+  ngOnInit() {}
+  salvar() {
+    if (this.consulta.id) {
+      this.consultaService.alterar(this.consulta).subscribe((r) => {
+        console.log(r);
+      });
+    } else {
+      this.consultaService.inserir(this.consulta).subscribe((r) => {
+        console.log(r);
+      });
+    }
+    console.log(this.consulta);
+  }
+  excluir() {
+    this.consultaService.deletar(this.consulta).subscribe((r) => {
+      console.log(r);
+      this.consulta = new Consulta();
+    });
   }
 
 }

@@ -1,5 +1,6 @@
 package com.clinicaMedica.domain;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,8 +21,12 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 @Entity
 @Table(name = "medico")
 @JsonIdentityInfo(generator = ObjectIdGenerators.UUIDGenerator.class, property = "uuid")
-public class Medico extends Usuario {
+public class Medico extends Usuario implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -30,7 +35,7 @@ public class Medico extends Usuario {
 	@Column
 	private String especialidade;
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JsonBackReference
+	@JsonBackReference(value = "proprietario")
 	private Proprietario proprietario;
 	@OneToMany(mappedBy = "medico")
 	private List<Consulta> consultas = new ArrayList<>();

@@ -1,5 +1,7 @@
 package com.clinicaMedica.domain;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -16,8 +18,12 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 @Entity
 @Table(name = "consulta")
 @JsonIdentityInfo(generator = ObjectIdGenerators.UUIDGenerator.class, property = "uuid")
-public class Consulta {
+public class Consulta implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -46,13 +52,13 @@ public class Consulta {
 	@Column
 	private Double valorConsulta;
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JsonBackReference
+	@JsonBackReference(value = "recepcionistas")
 	private Recepcionista recepcionistas;
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JsonBackReference
+	@JsonBackReference(value = "medico")
 	private Medico medico;
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JsonBackReference
+	@JsonBackReference(value = "paciente")
 	private Paciente paciente;
 
 	public Consulta() {

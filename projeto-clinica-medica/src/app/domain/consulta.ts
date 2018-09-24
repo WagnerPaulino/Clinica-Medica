@@ -1,5 +1,6 @@
 export class Consulta {
     id: Number;
+    descricao: String;
     especialidade: String;
     diagnostico: String;
     exame: String;

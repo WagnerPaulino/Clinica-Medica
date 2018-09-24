@@ -1,5 +1,6 @@
 package com.clinicaMedica.domain;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -16,8 +17,13 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 @Entity
 @Table(name = "paciente")
 @JsonIdentityInfo(generator = ObjectIdGenerators.UUIDGenerator.class, property = "uuid")
-public class Paciente extends Usuario{
+public class Paciente extends Usuario implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
     private Long idPaciente;
