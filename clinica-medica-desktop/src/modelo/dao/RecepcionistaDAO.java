@@ -66,7 +66,6 @@ public class RecepcionistaDAO {
             ps.setString(4, funcionario.getSenha());
             ps.setString(5, funcionario.getRua());
             ps.setString(6, funcionario.getCelular());
-            ps.setString(7, funcionario.getCelular2());
             ps.setString(8, funcionario.getEmail());            
             ps.executeUpdate();
             con.close();
@@ -94,7 +93,6 @@ public class RecepcionistaDAO {
           ps.setString(4,funcionario.getSenha());
           ps.setString(5,funcionario.getRua());
           ps.setString(6,funcionario.getCelular());
-          ps.setString(7,funcionario.getCelular2());
           ps.setString(8,funcionario.getEmail());
           ps.setInt(9, funcionario.getIdFuncionario());
             System.out.println(ps.toString());
@@ -141,7 +139,7 @@ public class RecepcionistaDAO {
             String celular2 = rs.getString("celular2");
             String email = rs.getString("email");
             
-            return new Recepcionista(idFuncionario, login, senha, true, idFuncionario, nome, cpf, idFuncionario, rua, celular, celular2, email, senha);
+            return new Recepcionista(idFuncionario, login, senha, true, senha);
             
         }catch (Exception e){
             throw new Exception(e.getMessage());

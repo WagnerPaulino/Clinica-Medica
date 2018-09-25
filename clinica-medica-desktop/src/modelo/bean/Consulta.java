@@ -47,6 +47,14 @@ public class Consulta {
         this.valorConsulta = valorConsulta;
     }
 
+    public Consulta(int codigo_Prontuario, String dtConsulta, String dtRetorno, double valor_Consulta, String descricao) {
+        this.codigo_Prontuario = codigo_Prontuario;
+        this.dtConsulta = dtConsulta;
+        this.dtRetorno = dtRetorno;
+        this.valorConsulta = valor_Consulta;
+        this.descricao = descricao;
+    }
+
     public int getCodigo_Prontuario() {
         return codigo_Prontuario;
     }
