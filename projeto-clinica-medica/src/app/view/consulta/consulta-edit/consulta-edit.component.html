@@ -1,8 +1,9 @@
-<form (ngSubmit)="salvar()">
+<form (ngSubmit)="salvar()" style="display: grid;">
+  <div style="display: table-row;">
     <mat-form-field>
       <input matInput placeholder="Descricao" [(ngModel)]="consulta.descricao" name="descricao">
     </mat-form-field>
-    <mat-form-field >
+    <mat-form-field>
       <input matInput placeholder="Especialidade" [(ngModel)]="consulta.especialidade" name="especialidade">
     </mat-form-field>
     <mat-form-field>
@@ -17,6 +18,8 @@
     <mat-form-field>
       <input matInput placeholder="Sintomas" [(ngModel)]="consulta.sintomas" name="sintomas">
     </mat-form-field>
+  </div>
+  <div style="display: table-row;">
     <mat-form-field>
       <input matInput placeholder="Peso" [(ngModel)]="consulta.peso" name="peso">
     </mat-form-field>
@@ -34,9 +37,10 @@
     </mat-form-field>
     <mat-form-field>
         <input matInput placeholder="Valor da Consulta" [(ngModel)]="consulta.valorConsulta" name="valorConsulta">
-      </mat-form-field>
-    <button mat-raised-button type="submit" color="primary">Salvar</button>
-    <div *ngIf="consulta.id">
-        <button mat-raised-button type="button" (click)="excluir()" color="primary">Excluir</button>
-    </div>
+    </mat-form-field>
+  </div>
+  <button mat-raised-button type="submit" color="primary">Salvar</button>
+  <div *ngIf="consulta.id">
+    <button mat-raised-button type="button" (click)="excluir()" color="primary">Excluir</button>
+  </div>
 </form>
