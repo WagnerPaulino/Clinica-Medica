@@ -13,6 +13,6 @@
       <button mat-button (click)="drawer.toggle()">
           <mat-icon>format_list_bulleted</mat-icon>
         </button>
-        <router-outlet></router-outlet>
+        <app-consulta-edit (salvouConsulta)="atualizarLista($event)"></app-consulta-edit>
   </mat-sidenav-content>
 </mat-sidenav-container>

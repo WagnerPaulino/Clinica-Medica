@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { ConsultaService } from '../../../services/consulta.service';
 import { Consulta } from '../../../domain/consulta';
 import { Route, ActivatedRoute, ParamMap } from '@angular/router';
-import { switchMap, map } from 'rxjs/operators'
+import { switchMap, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-consulta-edit',
@@ -11,15 +11,18 @@ import { switchMap, map } from 'rxjs/operators'
 })
 export class ConsultaEditComponent implements OnInit {
   public consulta: Consulta = new Consulta();
+
+  @Output()
+  public salvouConsulta = new EventEmitter();
+
   constructor(private consultaService: ConsultaService,
-    private route: ActivatedRoute,
-    private router: ActivatedRoute) {
+      private route: ActivatedRoute,
+      private router: ActivatedRoute) {
     this.route.queryParams.subscribe((params) => {
         const id = params['id'];
         if (id) {
           this.consultaService.findOne(id).subscribe((r: Consulta) => {
             this.consulta = r;
-            console.log(this.consulta);
           });
         } else {
           this.consulta = new Consulta;
@@ -30,19 +33,20 @@ export class ConsultaEditComponent implements OnInit {
   salvar() {
     if (this.consulta.id) {
       this.consultaService.alterar(this.consulta).subscribe((r) => {
-        console.log(r);
+        this.consulta = new Consulta();
+        this.salvouConsulta.emit();
       });
     } else {
       this.consultaService.inserir(this.consulta).subscribe((r) => {
-        console.log(r);
+        this.consulta = new Consulta();
+        this.salvouConsulta.emit();
       });
     }
-    console.log(this.consulta);
   }
   excluir() {
     this.consultaService.deletar(this.consulta).subscribe((r) => {
-      console.log(r);
       this.consulta = new Consulta();
+      this.salvouConsulta.emit();
     });
   }
 

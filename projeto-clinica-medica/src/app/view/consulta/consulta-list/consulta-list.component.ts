@@ -19,4 +19,12 @@ export class ConsultaListComponent implements OnInit {
     });
   }
 
+  atualizarLista(event) {
+    console.log(event);
+    this.consultaService.findAll().subscribe((r: any) => {
+      this.consultas = r.content;
+      console.log(this.consultas);
+    });
+  }
+
 }

@@ -40,7 +40,5 @@
     </mat-form-field>
   </div>
   <button mat-raised-button type="submit" color="primary">Salvar</button>
-  <div *ngIf="consulta.id">
-    <button mat-raised-button type="button" (click)="excluir()" color="primary">Excluir</button>
-  </div>
+  <button *ngIf="consulta.id" mat-raised-button type="button" (click)="excluir()" color="primary">Excluir</button>
 </form>

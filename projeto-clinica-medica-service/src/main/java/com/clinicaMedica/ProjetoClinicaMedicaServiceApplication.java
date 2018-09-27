@@ -2,11 +2,13 @@ package com.clinicaMedica;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cache.annotation.EnableCaching;
 
 /*Para testar, comente nas classes a linha 
  * @GeneratedValue(strategy = GenerationType.AUTO)
  */
 @SpringBootApplication
+@EnableCaching
 public class ProjetoClinicaMedicaServiceApplication /*implements CommandLineRunner */{
 
 //	@Autowired
