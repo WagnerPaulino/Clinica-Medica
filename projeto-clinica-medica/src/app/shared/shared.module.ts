@@ -11,10 +11,13 @@ import { MatSnackBarModule,
   MatButtonModule,
   MatToolbarModule,
   MatCheckboxModule,
-  MatDialogModule} from '@angular/material';
+  MatDialogModule,
+  MatPaginatorModule,
+  MatAutocompleteModule,
+  MatMenuModule} from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const ANGULAR_MATERIAL = [
     MatToolbarModule,
@@ -27,14 +30,17 @@ const ANGULAR_MATERIAL = [
     MatSelectModule,
     MatSnackBarModule,
     MatCheckboxModule,
-    MatDialogModule
+    MatDialogModule,
+    MatAutocompleteModule,
+    MatMenuModule
 ];
 
 const ANGULAR = [
   CommonModule,
   HttpClientModule,
   RouterModule,
-  FormsModule
+  FormsModule,
+  ReactiveFormsModule
 ];
 
 @NgModule({

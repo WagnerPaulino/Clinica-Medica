@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Consulta } from './../../../domain/consulta';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { ConsultaService } from '../../../services/consulta.service';
+import { Observable } from 'rxjs';
+import { FormControl } from '@angular/forms';
+import { startWith, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-consulta-list',
@@ -7,24 +11,40 @@ import { ConsultaService } from '../../../services/consulta.service';
   styleUrls: ['./consulta-list.component.css']
 })
 export class ConsultaListComponent implements OnInit {
-  public consultas: Array<any> = [];
+  public consultas: Array<Consulta> = [];
+  consultaSearch = new FormControl();
+  filteredOptions: Observable<Consulta[]>;
 
-
-  constructor(private consultaService: ConsultaService) { }
+  constructor(private consultaService: ConsultaService) {
+    this.consultaService.findAll().subscribe((consultas => {
+      this.consultas = consultas;
+      this.filterAll();
+    }));
+  }
 
   ngOnInit() {
-    this.consultaService.findAll().subscribe((r: any) => {
-      this.consultas = r.content;
-      console.log(this.consultas);
-    });
+    this.filterAll();
   }
 
   atualizarLista(event) {
     console.log(event);
     this.consultaService.findAll().subscribe((r: any) => {
-      this.consultas = r.content;
-      console.log(this.consultas);
+      this.consultas = r;
+      this.filterAll();
     });
   }
 
+  filterAll() {
+    this.filteredOptions = this.consultaSearch.valueChanges
+      .pipe(
+        startWith(''),
+        map(value => this._filter(value))
+      );
+  }
+
+  private _filter(name: String): Consulta[] {
+    console.log(name);
+    const filterValue = name.toLowerCase();
+    return this.consultas.filter(option => option.exame.toLowerCase().indexOf(filterValue) === 0);
+  }
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'projeto-clinica-medica';
+
+  @HostListener('window:resize')
+  onResize() {
+    if (window.innerWidth < 680) {
+      return false;
+    } else {
+      return true;
+    }
+  }
 }
