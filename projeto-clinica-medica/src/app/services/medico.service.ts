@@ -19,6 +19,10 @@ export class MedicoService {
     return this.http.get(`${this.urlbase}/${id}`);
   }
 
+  findMedicoByConsulta(consultaId) {
+    return this.http.get(`${this.urlbase}/consulta/${consultaId}`);
+  }
+
   inserir(medico: Medico) {
     return this.http.post(this.urlbase, medico);
   }

@@ -1,7 +1,9 @@
+import { MedicoService } from './../../../services/medico.service';
+import { Medico } from './../../../domain/medico';
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { ConsultaService } from '../../../services/consulta.service';
 import { Consulta } from '../../../domain/consulta';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-consulta-edit',
@@ -10,17 +12,27 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ConsultaEditComponent implements OnInit {
   public consulta: Consulta = new Consulta();
+  public medicos: Array<Medico> = [];
+  private id;
 
   @Output()
   public salvouConsulta = new EventEmitter();
 
   constructor(private consultaService: ConsultaService,
-      private route: ActivatedRoute) {
+      private medicoService: MedicoService,
+      private route: ActivatedRoute,
+      private router: Router) {
+    this.medicoService.findAll().subscribe((r) => {
+      this.medicos = r;
+    });
     this.route.queryParams.subscribe((params) => {
-        const id = params['id'];
-        if (id) {
-          this.consultaService.findOne(id).subscribe((r: Consulta) => {
+        this.id = params['id'];
+        if (this.id) {
+          this.consultaService.findOne(this.id).subscribe((r: Consulta) => {
             this.consulta = r;
+            this.medicoService.findMedicoByConsulta(this.consulta.id).subscribe((m: any) => {
+              this.consulta.medico = m;
+            });
           });
         } else {
           this.consulta = new Consulta;
@@ -31,11 +43,15 @@ export class ConsultaEditComponent implements OnInit {
   salvar() {
     if (this.consulta.id) {
       this.consultaService.alterar(this.consulta).subscribe((r) => {
+        this.router.navigateByUrl('/consulta-list');
+        this.id = '';
         this.consulta = new Consulta();
         this.salvouConsulta.emit();
       });
     } else {
       this.consultaService.inserir(this.consulta).subscribe((r) => {
+        this.router.navigateByUrl('/consulta-list');
+        this.id = '';
         this.consulta = new Consulta();
         this.salvouConsulta.emit();
       });

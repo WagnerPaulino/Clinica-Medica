@@ -1,5 +1,6 @@
 import { DashboardComponent } from './../view/dashboard/dashboard.component';
 import { NgModule } from '@angular/core';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { MatSnackBarModule,
   MatSelectModule,
@@ -32,7 +33,7 @@ const ANGULAR_MATERIAL = [
     MatCheckboxModule,
     MatDialogModule,
     MatAutocompleteModule,
-    MatMenuModule
+    MatMenuModule,
 ];
 
 const ANGULAR = [
@@ -40,7 +41,8 @@ const ANGULAR = [
   HttpClientModule,
   RouterModule,
   FormsModule,
-  ReactiveFormsModule
+  ReactiveFormsModule,
+  BrowserAnimationsModule
 ];
 
 @NgModule({

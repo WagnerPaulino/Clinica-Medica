@@ -48,6 +48,11 @@ public class MedicoRest {
 		log.debug("[find] Medico NÃO encontrado.");
 		return ResponseEntity.notFound().build();
 	}
+	
+	@GetMapping(path = "/api/medicos/consulta/{id}")
+	public ResponseEntity<?> findMedicoByConsulta(@PathVariable("id") Long id){
+		return ResponseEntity.ok(service.findMedicoByConsulta(id));
+	}
 
 	@DeleteMapping(path = "/api/medicos/{id}")
 	public ResponseEntity<?> delete(@PathVariable("id") Long id) {

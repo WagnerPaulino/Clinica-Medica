@@ -1,5 +1,16 @@
 <form (ngSubmit)="salvar()">
   <div style="display: grid; grid-auto-columns: 100%;">
+    <mat-form-field class="full-width">
+      <mat-select placeholder="Medico" [(ngModel)]="consulta.medico" name="medico">
+          <mat-option [value]="null">
+              Nenhuma
+            </mat-option>
+        <mat-option *ngFor="let medico of medicos" [value]="medico">
+          {{ medico.nome }}
+        </mat-option>
+      </mat-select>
+      <mat-hint>Medico reponsavel: {{consulta.medico?.nome}}</mat-hint>
+    </mat-form-field>
     <mat-form-field>
       <input matInput placeholder="Descricao" [(ngModel)]="consulta.descricao" name="descricao">
     </mat-form-field>

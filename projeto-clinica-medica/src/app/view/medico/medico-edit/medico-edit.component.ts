@@ -1,7 +1,7 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { MedicoService } from '../../../services/medico.service';
 import { Medico } from '../../../domain/medico';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-medico-edit',
@@ -10,17 +10,18 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class MedicoEditComponent implements OnInit {
   public medico: Medico = new Medico();
+  private id;
 
   @Output()
   public salvouMedico = new EventEmitter();
 
   constructor(private medicoService: MedicoService,
       private route: ActivatedRoute,
-      private router: ActivatedRoute) {
+      private router: Router) {
     this.route.queryParams.subscribe((params) => {
-        const id = params['id'];
-        if (id) {
-          this.medicoService.findOne(id).subscribe((r: Medico) => {
+        this.id = params['id'];
+        if (this.id) {
+          this.medicoService.findOne(this.id).subscribe((r: Medico) => {
             this.medico = r;
           });
         } else {
@@ -32,12 +33,16 @@ export class MedicoEditComponent implements OnInit {
   salvar() {
     if (this.medico.id) {
       this.medicoService.alterar(this.medico).subscribe((r) => {
+        this.router.navigateByUrl('/medico-list');
         this.medico = new Medico();
+        this.id = '';
         this.salvouMedico.emit();
       });
     } else {
       this.medicoService.inserir(this.medico).subscribe((r) => {
+        this.router.navigateByUrl('/medico-list');
         this.medico = new Medico();
+        this.id = '';
         this.salvouMedico.emit();
       });
     }

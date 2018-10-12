@@ -1,3 +1,4 @@
+import { Medico } from './medico';
 export class Consulta {
     id: Number;
     descricao: String;
@@ -12,4 +13,5 @@ export class Consulta {
     dtConsulta: String;
     dtRetorno: String;
     valorConsulta: Number;
+    medico: Medico = new Medico();
 }
