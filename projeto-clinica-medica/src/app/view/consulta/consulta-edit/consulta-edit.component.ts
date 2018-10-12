@@ -1,8 +1,7 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { ConsultaService } from '../../../services/consulta.service';
 import { Consulta } from '../../../domain/consulta';
-import { Route, ActivatedRoute, ParamMap } from '@angular/router';
-import { switchMap, map } from 'rxjs/operators';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-consulta-edit',
@@ -16,8 +15,7 @@ export class ConsultaEditComponent implements OnInit {
   public salvouConsulta = new EventEmitter();
 
   constructor(private consultaService: ConsultaService,
-      private route: ActivatedRoute,
-      private router: ActivatedRoute) {
+      private route: ActivatedRoute) {
     this.route.queryParams.subscribe((params) => {
         const id = params['id'];
         if (id) {

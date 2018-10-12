@@ -1,3 +1,4 @@
+import { MedicoModule } from './view/medico/medico.module';
 import { ConsultaModule } from './view/consulta/consulta.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -16,7 +17,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     SharedModule,
     BrowserAnimationsModule,
-    ConsultaModule
+    ConsultaModule,
+    MedicoModule
   ],
   providers: [],
   bootstrap: [AppComponent]

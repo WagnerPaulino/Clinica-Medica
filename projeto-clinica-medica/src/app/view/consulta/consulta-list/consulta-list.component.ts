@@ -27,7 +27,6 @@ export class ConsultaListComponent implements OnInit {
   }
 
   atualizarLista(event) {
-    console.log(event);
     this.consultaService.findAll().subscribe((r: any) => {
       this.consultas = r;
       this.filterAll();
@@ -43,7 +42,9 @@ export class ConsultaListComponent implements OnInit {
   }
 
   private _filter(name: String): Consulta[] {
-    console.log(name);
+    if (name === undefined) {
+      name = '';
+    }
     const filterValue = name.toLowerCase();
     return this.consultas.filter(option => option.exame.toLowerCase().indexOf(filterValue) === 0);
   }

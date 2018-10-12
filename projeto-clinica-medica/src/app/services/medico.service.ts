@@ -2,6 +2,7 @@ import { Medico } from './../domain/medico';
 import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class MedicoService {
   private urlbase = environment.urlBase + 'medicos';
   constructor(private http: HttpClient) { }
 
-  findAll() {
+  findAll(): Observable<any> {
     return this.http.get(`${this.urlbase}`);
   }
 

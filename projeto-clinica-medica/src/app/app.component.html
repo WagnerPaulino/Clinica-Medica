@@ -3,7 +3,7 @@
         <h1 style="padding-right: 1%" routerLink="/">Clinica Medica</h1>
         <div *ngIf="onResize()">
             <button mat-raised-button color="primary" routerLink="/consulta-list">Consultas</button>
-            <button mat-raised-button color="primary">Medicos</button>
+            <button mat-raised-button color="primary" routerLink="/medico-list">Medicos</button>
             <button mat-raised-button color="primary">Pacientes</button>
             <button mat-raised-button color="primary">Proprietarios</button>
             <button mat-raised-button color="primary">Recepcionistas</button>
@@ -12,7 +12,7 @@
             <button  mat-button [matMenuTriggerFor]="menu">Opções</button>
             <mat-menu #menu="matMenu">
                 <button mat-menu-item color="primary" routerLink="/consulta-list">Consultas</button>
-                <button mat-menu-item color="primary">Medicos</button>
+                <button mat-menu-item color="primary" routerLink="/medico-list">Medicos</button>
                 <button mat-menu-item color="primary">Pacientes</button>
                 <button mat-menu-item color="primary">Proprietarios</button>
                 <button mat-menu-item color="primary">Recepcionistas</button>
