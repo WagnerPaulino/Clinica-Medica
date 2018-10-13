@@ -27,7 +27,6 @@ export class PacienteListComponent implements OnInit {
   }
 
   atualizarLista(event) {
-    console.log(event);
     this.pacienteService.findAll().subscribe((r: any) => {
       this.pacientes = r;
       this.filterAll();

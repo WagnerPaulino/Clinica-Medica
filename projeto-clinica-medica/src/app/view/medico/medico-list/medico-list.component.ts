@@ -27,7 +27,6 @@ export class MedicoListComponent implements OnInit {
   }
 
   atualizarLista(event) {
-    console.log(event);
     this.medicoService.findAll().subscribe((r: any) => {
       this.medicos = r;
       this.filterAll();

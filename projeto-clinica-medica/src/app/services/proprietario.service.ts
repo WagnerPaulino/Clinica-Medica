@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { Proprietario } from './../domain/proprietario';
 import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
@@ -10,7 +11,7 @@ export class ProprietarioService {
   private urlbase = environment.urlBase + 'proprietarios';
   constructor(private http: HttpClient) { }
 
-  findAll() {
+  findAll(): Observable<any> {
     return this.http.get(`${this.urlbase}`);
   }
 

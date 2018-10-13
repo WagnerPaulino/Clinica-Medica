@@ -1,12 +1,12 @@
 package com.clinicaMedica.rest;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -29,9 +29,9 @@ private Logger log = LoggerFactory.getLogger(Recepcionista.class);
 	private RecepcionistaService service;
 	
 	@GetMapping(path = "/api/recepcionistas")
-	public ResponseEntity<?> findAll(Pageable pageable) {
+	public ResponseEntity<?> findAll() {
 		log.debug("[findAll] Requisição para buscar todos recepcionistas");
-		Page<Recepcionista> recepcionistas = service.findAll(pageable);
+		List<Recepcionista> recepcionistas = service.findAll();
 		log.debug("=========" + recepcionistas);
 		return ResponseEntity.ok().body(recepcionistas);
 

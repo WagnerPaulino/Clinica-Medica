@@ -1,3 +1,4 @@
+import { ProprietarioModule } from './view/proprietario/proprietario.module';
 import { PacienteModule } from './view/paciente/paciente.module';
 import { MedicoModule } from './view/medico/medico.module';
 import { ConsultaModule } from './view/consulta/consulta.module';
@@ -20,7 +21,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
     ConsultaModule,
     MedicoModule,
-    PacienteModule
+    PacienteModule,
+    ProprietarioModule
   ],
   providers: [],
   bootstrap: [AppComponent]
