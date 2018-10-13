@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { Recepcionista } from './../domain/recepcionista';
 import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
@@ -10,7 +11,7 @@ export class RecepcionistaService {
   private urlbase = environment.urlBase + 'recepcionistas';
   constructor(private http: HttpClient) { }
 
-  findAll() {
+  findAll(): Observable<any> {
     return this.http.get(`${this.urlbase}`);
   }
 

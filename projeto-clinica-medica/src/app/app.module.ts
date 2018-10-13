@@ -1,3 +1,4 @@
+import { RecepcionistaModule } from './view/recepcionista/recepcionista.module';
 import { ProprietarioModule } from './view/proprietario/proprietario.module';
 import { PacienteModule } from './view/paciente/paciente.module';
 import { MedicoModule } from './view/medico/medico.module';
@@ -22,7 +23,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ConsultaModule,
     MedicoModule,
     PacienteModule,
-    ProprietarioModule
+    ProprietarioModule,
+    RecepcionistaModule
   ],
   providers: [],
   bootstrap: [AppComponent]
