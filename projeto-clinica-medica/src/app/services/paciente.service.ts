@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { Paciente } from './../domain/paciente';
 import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
@@ -10,7 +11,7 @@ export class PacienteService {
   private urlbase = environment.urlBase + 'pacientes';
   constructor(private http: HttpClient) { }
 
-  findAll() {
+  findAll(): Observable<any> {
     return this.http.get(`${this.urlbase}`);
   }
 
