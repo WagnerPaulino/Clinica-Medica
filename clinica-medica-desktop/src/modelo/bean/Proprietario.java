@@ -1,4 +1,18 @@
 /*
- * To changi5his license header,o coose License Headers in Project Pro coose Licties.o changi5his licensetemplate filee LicenseTools | Templateso chaand  Liniceeetemplate iniceeeeditor.o ch/
-packa limodelo.bean;gtrPrh/ttT@author ASUSX451itor.o cubcen classro corietario {bean    cubcen void cadastrarFuncionario(){an        an    }an       
-}an
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package modelo.bean;
+
+/**
+ *
+ * @author ASUSX451
+ */
+public class Proprietario {
+
+    public void cadastrarFuncionario(){
+        
+    }
+       
+}
