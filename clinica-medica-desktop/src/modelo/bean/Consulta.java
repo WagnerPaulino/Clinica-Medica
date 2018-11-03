@@ -121,6 +121,10 @@ public class Consulta {
         this.valorConsulta = valorConsulta;
     }
 
+    public void setNome_Paciente(String string) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
    
    
 

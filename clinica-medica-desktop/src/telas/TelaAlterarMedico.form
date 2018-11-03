@@ -274,7 +274,6 @@
                               <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel37" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jtfCrm" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -330,11 +329,11 @@
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="6">
                     <StringItem index="0" value="Selecione"/>
-                    <StringItem index="1" value="Anivers&#xe1;rio"/>
-                    <StringItem index="2" value="Casamento"/>
-                    <StringItem index="3" value="Formatura"/>
-                    <StringItem index="4" value="Debutantes"/>
-                    <StringItem index="5" value="Damas de Honra"/>
+                    <StringItem index="1" value="Clinico"/>
+                    <StringItem index="2" value="Ginecologista"/>
+                    <StringItem index="3" value="Neurologista"/>
+                    <StringItem index="4" value="Pediatra"/>
+                    <StringItem index="5" value="Urulogista"/>
                   </StringArray>
                 </Property>
               </Properties>
@@ -427,13 +426,15 @@
             <Component class="javax.swing.JComboBox" name="jcbMunicipio">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="6">
+                  <StringArray count="8">
                     <StringItem index="0" value="Selecione"/>
-                    <StringItem index="1" value="Anivers&#xe1;rio"/>
-                    <StringItem index="2" value="Casamento"/>
-                    <StringItem index="3" value="Formatura"/>
-                    <StringItem index="4" value="Debutantes"/>
-                    <StringItem index="5" value="Damas de Honra"/>
+                    <StringItem index="1" value="Ananindeua"/>
+                    <StringItem index="2" value="Bel&#xe9;m"/>
+                    <StringItem index="3" value="Benevides"/>
+                    <StringItem index="4" value="Castanhal"/>
+                    <StringItem index="5" value="Marituba"/>
+                    <StringItem index="6" value="Santa Isabel"/>
+                    <StringItem index="7" value="Santa Maria"/>
                   </StringArray>
                 </Property>
               </Properties>

@@ -40,6 +40,11 @@ public class AgendaConsultaDAO {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    public AgendaConsulta buscaragendamento(String text) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+   
 /**
  *
  * @author 

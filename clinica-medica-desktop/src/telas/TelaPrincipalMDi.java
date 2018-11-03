@@ -20,7 +20,7 @@ public class TelaPrincipalMDi extends javax.swing.JFrame {
      */
     public TelaPrincipalMDi(Recepcionista func) {
         initComponents();
-        jmFun.enable(func.isAdm());
+        jmRec.enable(func.isAdm());
         System.out.println(func.isAdm());
         
     }
@@ -37,7 +37,7 @@ public class TelaPrincipalMDi extends javax.swing.JFrame {
         TelaPrincipal1 = new javax.swing.JDesktopPane();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jmFun = new javax.swing.JMenu();
+        jmRec = new javax.swing.JMenu();
         jMenuItem10 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
@@ -81,11 +81,11 @@ public class TelaPrincipalMDi extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        jmFun.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/funcionario.png"))); // NOI18N
-        jmFun.setText("Funcionários");
-        jmFun.addActionListener(new java.awt.event.ActionListener() {
+        jmRec.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/funcionario.png"))); // NOI18N
+        jmRec.setText("Recepcionista");
+        jmRec.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmFunActionPerformed(evt);
+                jmRecActionPerformed(evt);
             }
         });
 
@@ -96,7 +96,7 @@ public class TelaPrincipalMDi extends javax.swing.JFrame {
                 jMenuItem10ActionPerformed(evt);
             }
         });
-        jmFun.add(jMenuItem10);
+        jmRec.add(jMenuItem10);
 
         jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/user_edit.png"))); // NOI18N
         jMenuItem4.setText("Alterar");
@@ -105,7 +105,7 @@ public class TelaPrincipalMDi extends javax.swing.JFrame {
                 jMenuItem4ActionPerformed(evt);
             }
         });
-        jmFun.add(jMenuItem4);
+        jmRec.add(jMenuItem4);
 
         jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/user_delete.png"))); // NOI18N
         jMenuItem5.setText("Excluir");
@@ -114,12 +114,12 @@ public class TelaPrincipalMDi extends javax.swing.JFrame {
                 jMenuItem5ActionPerformed(evt);
             }
         });
-        jmFun.add(jMenuItem5);
+        jmRec.add(jMenuItem5);
 
-        jMenuBar1.add(jmFun);
+        jMenuBar1.add(jmRec);
 
         jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/group.png"))); // NOI18N
-        jMenu2.setText("Clientes");
+        jMenu2.setText("Paciente");
 
         jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/zoom.png"))); // NOI18N
         jMenuItem6.setText("Pesquisar");
@@ -160,10 +160,10 @@ public class TelaPrincipalMDi extends javax.swing.JFrame {
         jMenuBar1.add(jMenu2);
 
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/roupa 20x20.png"))); // NOI18N
-        jMenu1.setText("Roupas");
+        jMenu1.setText("Medico");
 
         jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/roupa_alugar.png"))); // NOI18N
-        jMenuItem1.setText("Alugar");
+        jMenuItem1.setText("Agendar");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
@@ -172,7 +172,7 @@ public class TelaPrincipalMDi extends javax.swing.JFrame {
         jMenu1.add(jMenuItem1);
 
         jMenuItem12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/roupa_devolucao.png"))); // NOI18N
-        jMenuItem12.setText("Devolucção");
+        jMenuItem12.setText("Retorno");
         jMenuItem12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem12ActionPerformed(evt);
@@ -267,7 +267,7 @@ public class TelaPrincipalMDi extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        TelaAluguelMedico telapesqprod = new TelaAluguelMedico();
+        TelaCadastroMedico telapesqprod = new TelaCadastroMedico();
         TelaPrincipal1.add(telapesqprod);
         telapesqprod.setVisible(true);
 
@@ -334,9 +334,9 @@ public class TelaPrincipalMDi extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
-    private void jmFunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmFunActionPerformed
+    private void jmRecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmRecActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jmFunActionPerformed
+    }//GEN-LAST:event_jmRecActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         TelaAlterarRecepcionista telaaltdadfunc = new TelaAlterarRecepcionista();
@@ -357,13 +357,13 @@ public class TelaPrincipalMDi extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
-        TelaDevolucao telaregdevJIF = new TelaDevolucao();
+        TelaRegistraConsultaJF telaregdevJIF = new TelaRegistraConsultaJF();
         TelaPrincipal1.add(telaregdevJIF);
         telaregdevJIF.setVisible(true);
     }//GEN-LAST:event_jMenuItem12ActionPerformed
 
     private void jMenuItem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem13ActionPerformed
-        TelaAlterarCliente telaaltcli = new TelaAlterarCliente();
+        TelaAlterarPaciente telaaltcli = new TelaAlterarPaciente();
         TelaPrincipal1.add(telaaltcli);
         telaaltcli.setVisible(true);
         
@@ -449,6 +449,6 @@ public class TelaPrincipalMDi extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenu jmFun;
+    private javax.swing.JMenu jmRec;
     // End of variables declaration//GEN-END:variables
 }

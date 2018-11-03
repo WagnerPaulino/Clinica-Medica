@@ -7,13 +7,12 @@ package modelo.bean;
 
 /**
  *
- * @author Diloan
+ * 
  */
 public class Medico extends Usuario{
     private int idCrm;
     private String especialidade;
- 
-     
+      
      
     public Medico() {
     }
@@ -61,6 +60,14 @@ public class Medico extends Usuario{
     }
 
     public void add(Medico medico) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setData(int i) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setconsulta(int i) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

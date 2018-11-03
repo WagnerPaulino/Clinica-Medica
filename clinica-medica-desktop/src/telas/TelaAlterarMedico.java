@@ -163,7 +163,7 @@ public class TelaAlterarMedico extends javax.swing.JInternalFrame {
 
         jLabel35.setText("Especialidade");
 
-        jcbEspecialidade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Aniversário", "Casamento", "Formatura", "Debutantes", "Damas de Honra" }));
+        jcbEspecialidade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Clinico", "Ginecologista", "Neurologista", "Pediatra", "Urulogista" }));
         jcbEspecialidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcbEspecialidadeActionPerformed(evt);
@@ -214,7 +214,7 @@ public class TelaAlterarMedico extends javax.swing.JInternalFrame {
             }
         });
 
-        jcbMunicipio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Aniversário", "Casamento", "Formatura", "Debutantes", "Damas de Honra" }));
+        jcbMunicipio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Ananindeua", "Belém", "Benevides", "Castanhal", "Marituba", "Santa Isabel", "Santa Maria" }));
         jcbMunicipio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcbMunicipioActionPerformed(evt);
@@ -277,7 +277,6 @@ public class TelaAlterarMedico extends javax.swing.JInternalFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel35, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(3, 3, 3)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel37)
                     .addComponent(jtfCrm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))

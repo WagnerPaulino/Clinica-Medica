@@ -6,17 +6,17 @@ package modelo.bean;
  * @author Alexsandra e Gaby
  */
 public class AgendaConsulta {
-    int Data;
-    int Hora;
-    String Nome_Paciente;
-    String Especialidade;
-    String Medico;
+    private int Data;
+    private int Hora;
+    private String Nome_Paciente;
+    private String Especialidade;
+    private String Medico;
 
     public AgendaConsulta() {
     }
 
-    public AgendaConsulta(int Date, int Hora, String Nome_Paciente, String Especialidade, String Medico) {
-        this.Data = Date;
+    public AgendaConsulta(int Data, int Hora, String Nome_Paciente, String Especialidade, String Medico) {
+        this.Data = Data;
         this.Hora = Hora;
         this.Nome_Paciente = Nome_Paciente;
         this.Especialidade = Especialidade;

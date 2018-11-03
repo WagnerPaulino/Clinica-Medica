@@ -7,7 +7,7 @@ package modelo.bean;
 
 /**
  *
- * @author ASUSX451
+ 
  */
 public class Usuario {
     private int codigo;

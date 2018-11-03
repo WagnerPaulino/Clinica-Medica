@@ -20,6 +20,10 @@ import javax.swing.JOptionPane;
  * @author Diloan
  */
 public class MedicoDAO {
+
+    public static void alterarConsulta(Medico medico) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     private Connection con = null;
     private String sql = null;
     private PreparedStatement ps = null;
@@ -203,6 +207,10 @@ public class MedicoDAO {
           }
           return Medico;
       }
+
+    public Medico buscarUmMedico(int parseInt) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
      
      
 }

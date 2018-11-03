@@ -10,15 +10,15 @@ import modelo.bean.Paciente;
 import modelo.bean.Medico;
 import modelo.dao.PacienteDAO;
 import modelo.dao.MedicoDAO;
-
+import modelo. bean.Usuario;
 /**
  *
  * @author ASUSX451
  */
 public class TelaExcluirMedico extends javax.swing.JInternalFrame {
 
-    Medico roupa = new Medico();
-    MedicoDAO roupaDAO = new MedicoDAO();
+    Medico medico = new Medico();
+    MedicoDAO medicoDAO = new MedicoDAO();
 
     /**
      * Creates new form TelaExcluirCliente
@@ -40,16 +40,16 @@ public class TelaExcluirMedico extends javax.swing.JInternalFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jbPesquisar = new javax.swing.JButton();
-        jtfCodigoPesquisa = new javax.swing.JTextField();
+        jtfPesquisarMedico = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jtfCodigo = new javax.swing.JTextField();
+        Especialidade = new javax.swing.JLabel();
+        jtfCRM = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jtfPreco = new javax.swing.JTextField();
+        jtfCpf = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jtfCategoria = new javax.swing.JTextField();
+        jtfEspecialidade = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jtfModelo = new javax.swing.JTextField();
+        jtfNome = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jbApagar = new javax.swing.JButton();
         jbCancelar = new javax.swing.JButton();
@@ -57,17 +57,23 @@ public class TelaExcluirMedico extends javax.swing.JInternalFrame {
         setClosable(true);
 
         jPanel1.setBackground(new java.awt.Color(123, 10, 10));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Pesquisar roupa", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 11), java.awt.Color.white)); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Pesquisar Medico", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), java.awt.Color.white)); // NOI18N
         jPanel1.setForeground(java.awt.Color.white);
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
         jLabel4.setForeground(java.awt.Color.white);
-        jLabel4.setText("Informe o código a roupa:");
+        jLabel4.setText("Informe o CRM do Médico");
 
         jbPesquisar.setText("Pesquisar");
         jbPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbPesquisarActionPerformed(evt);
+            }
+        });
+
+        jtfPesquisarMedico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtfPesquisarMedicoActionPerformed(evt);
             }
         });
 
@@ -79,7 +85,7 @@ public class TelaExcluirMedico extends javax.swing.JInternalFrame {
                 .addGap(109, 109, 109)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jtfCodigoPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtfPesquisarMedico, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(49, 49, 49)
                 .addComponent(jbPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -91,28 +97,28 @@ public class TelaExcluirMedico extends javax.swing.JInternalFrame {
                 .addComponent(jLabel4)
                 .addGap(0, 0, 0)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jtfCodigoPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtfPesquisarMedico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(25, 25, 25))
         );
 
         jPanel2.setBackground(new java.awt.Color(123, 10, 10));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Dados da roupa", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 11), java.awt.Color.white)); // NOI18N
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Dados do Medico", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), java.awt.Color.white)); // NOI18N
 
-        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel2.setForeground(java.awt.Color.white);
-        jLabel2.setText("Categoria:");
+        Especialidade.setBackground(new java.awt.Color(255, 255, 255));
+        Especialidade.setForeground(java.awt.Color.white);
+        Especialidade.setText("Especialidade");
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setForeground(java.awt.Color.white);
-        jLabel3.setText("Preço:");
+        jLabel3.setText("CPF");
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setForeground(java.awt.Color.white);
-        jLabel1.setText("Código:");
+        jLabel1.setText("CRM");
 
         jLabel5.setForeground(java.awt.Color.white);
-        jLabel5.setText("Modelo:");
+        jLabel5.setText("Nome:");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -124,16 +130,16 @@ public class TelaExcluirMedico extends javax.swing.JInternalFrame {
                     .addComponent(jLabel5)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
+                            .addComponent(Especialidade)
                             .addComponent(jLabel3)
                             .addComponent(jLabel1))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jtfPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jtfModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jtfCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jtfCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(jtfCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jtfNome, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jtfEspecialidade, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtfCRM, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(182, 182, 182))
         );
         jPanel2Layout.setVerticalGroup(
@@ -141,19 +147,19 @@ public class TelaExcluirMedico extends javax.swing.JInternalFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(33, 33, 33)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jtfCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtfCRM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addGap(33, 33, 33)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jtfCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                    .addComponent(jtfEspecialidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Especialidade))
                 .addGap(33, 33, 33)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jtfModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtfNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
                 .addGap(33, 33, 33)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jtfPreco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtfCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addContainerGap(29, Short.MAX_VALUE))
         );
@@ -223,14 +229,15 @@ public class TelaExcluirMedico extends javax.swing.JInternalFrame {
     private void jbPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbPesquisarActionPerformed
         try {
 
-            roupaDAO = new MedicoDAO();
-            roupa = roupaDAO.buscarUmaRoupa(Integer.parseInt(jtfCodigoPesquisa.getText()));
-            jtfCodigo.setText(Integer.toString(roupa.getCodigo_roupa()));
-            jtfCategoria.setText(roupa.getCategoria());
-            jtfModelo.setText(roupa.getModelo());
-            jtfPreco.setText(Double.toString(roupa.getPreco()));
+            medicoDAO = new MedicoDAO();
+            Usuario usuario = new Usuario();
+            medico = medicoDAO.buscarUmMedico(Integer.parseInt(jtfPesquisarMedico.getText()));
+            jtfCRM.setText(Integer.toString(medico.getIdCrm()));
+            jtfEspecialidade.setText(medico.getEspecialidade());
+            jtfNome.setText(medico.getNome());
+            jtfCpf.setText(usuario.getCpf());
 
-            jtfCodigoPesquisa.setText("");
+            jtfPesquisarMedico.setText("");
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Erro ao pesquisar:\n " + e);
@@ -242,17 +249,17 @@ public class TelaExcluirMedico extends javax.swing.JInternalFrame {
     private void jbApagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbApagarActionPerformed
 
         try {
-            roupa = new Medico();
-            roupa.setCodigo_roupa(Integer.parseInt(jtfCodigo.getText()));
+            medico = new Medico();
+            medico.setIdCrm(Integer.parseInt(jtfCRM.getText()));
 
-            roupaDAO = new MedicoDAO();
-            roupaDAO.excluir(roupa);
+            medicoDAO = new MedicoDAO();
+            medicoDAO.excluir(medico);
 
             JOptionPane.showMessageDialog(this, "Roupa excluida com sucesso!");
-            jtfCodigo.setText("");
-            jtfCategoria.setText("");
-            jtfModelo.setText("");
-            jtfPreco.setText("");
+            jtfCRM.setText("");
+            jtfEspecialidade.setText("");
+            jtfNome.setText("");
+            jtfCpf.setText("");
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Erro ao excluir cliente:\n " + e);
@@ -267,10 +274,14 @@ public class TelaExcluirMedico extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_jbCancelarActionPerformed
 
+    private void jtfPesquisarMedicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfPesquisarMedicoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtfPesquisarMedicoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Especialidade;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -281,10 +292,10 @@ public class TelaExcluirMedico extends javax.swing.JInternalFrame {
     private javax.swing.JButton jbApagar;
     private javax.swing.JButton jbCancelar;
     private javax.swing.JButton jbPesquisar;
-    private javax.swing.JTextField jtfCategoria;
-    private javax.swing.JTextField jtfCodigo;
-    private javax.swing.JTextField jtfCodigoPesquisa;
-    private javax.swing.JTextField jtfModelo;
-    private javax.swing.JTextField jtfPreco;
+    private javax.swing.JTextField jtfCRM;
+    private javax.swing.JTextField jtfCpf;
+    private javax.swing.JTextField jtfEspecialidade;
+    private javax.swing.JTextField jtfNome;
+    private javax.swing.JTextField jtfPesquisarMedico;
     // End of variables declaration//GEN-END:variables
 }
